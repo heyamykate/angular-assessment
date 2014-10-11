@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+        <title>Hola</title>
+        
+        <link rel="stylesheet" href="bootstrap.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One|Lobster+Two' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    
+    <body ng-controller="MainCtrl">
+    <div class="container">
+            <div class="jumbotron center-block">
+        
+                <h1>To Do List</h1>
+
+                <input type="text" ng-model="newItem"/>
+
+                <div class="btn btn-default" ng-click="addItem(newItem)">Add an Item</div>
+            </div>
+        
+        <div class="list">
+            <ul ng-repeat="item in todos">
+                <li ng-show="!item.done">{{ item.text }}  <input type="checkbox" ng-model="item.done"/></li>
+            </ul>
+        </div>
+        
+    </div>
+
+        
+
+
+        
+       
+    
+    <script type="text/javascript" src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="ListService.js"></script>
+    <script src="MainCtrl.js"></script>
+    </body>
+</html>
