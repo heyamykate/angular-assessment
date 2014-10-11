@@ -13,14 +13,23 @@
             <div class="jumbotron center-block">
         
                 <h1>To Do List</h1>
-
+                
+<!--                The input text is bound to the value of 'newItem' by giving it the ng-model property-->
                 <input type="text" ng-model="newItem"/>
 
+<!--                The buttom adds the newItem to the todos array on click by using the addItem function we created in our MainCtrl file.-->
                 <div class="btn btn-default" ng-click="addItem(newItem)">Add an Item</div>
             </div>
         
         <div class="list">
+            
+<!--            We are repeating each item in the todos array. 'item' is an arbitrary alias, it could be called anything. The important thing to understand is that it's just naming the single instance of each item in the todos array.--> 
             <ul ng-repeat="item in todos">
+                
+<!--
+                ng-show is saying that as long as the item.done property is false, the li will be shown.
+                the checkbox has the ng-model of 'item.done' because its value is bound to item.done. if the checkbox is changed, e.g. checked, the item.done value will be changed from false to true. 
+-->
                 <li ng-show="!item.done">{{ item.text }}  <input type="checkbox" ng-model="item.done"/></li>
             </ul>
         </div>
